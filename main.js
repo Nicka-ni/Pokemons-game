@@ -16,7 +16,7 @@ function changeHP(count){
     
     if(this.damageHP<count){
         this.damageHP = 0;
-        alert(this.name + ' проиграл бой');
+        alert('Бедный ' + this.name + ' проиграл бой');
         $btn.disabled = true;
     } else {
         this.damageHP -= count;
@@ -76,14 +76,14 @@ generateLog=(firstPerson, secondPerson, dmg)=>{
 
     return logs[random(logs.length) - 1]
 }
-let count=10;
 trigger=(clicks = 1)=> {
   return function () {
-      if(clicks<count){
-          console.log("Осталось ударов: ", count-(clicks++)+ "/"+count);
+      if(clicks==6){
+          $btn.disabled=true;
+          alert('У вас закончились удары!')
       }
       else{
-           $btn.disabled=true;
+        console.log("Осталось ударов: ",+ 6-(clicks++));
       }
   }
 }
@@ -92,8 +92,8 @@ $btn.addEventListener('click', counter);
 
 $btn.addEventListener('click', function() {
     console.log('Kick');
-    character.changeHP(random(35));
-    enemy.changeHP(random(35));
+    character.changeHP(random(20));
+    enemy.changeHP(random(20));
 });
 $btn1.addEventListener('click', function() {
     console.log('Ulta');
