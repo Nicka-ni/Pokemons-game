@@ -1,4 +1,6 @@
+@import "./kostil-style.css";
 * {
+    text-decoration: none;
     box-sizing: border-box;
 }
 
